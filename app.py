@@ -281,49 +281,6 @@ def main():
         # Create visualizations
         create_visualizations(df)
         
-        # Model performance
-        if model is not None:
-            st.subheader("Model Performance")
-            st.write(f"Model used: **{model_info['model_name']}**")
-            
-            # Display placeholder metrics
-            col1, col2 = st.columns(2)
-            
-            with col1:
-                # Placeholder for model metrics
-                metrics = {
-                    'R² Score': 0.756,  # Based on the output you shared
-                    'RMSE': 1.86,       # Based on the output you shared
-                    'MAE': 1.5          # Placeholder value
-                }
-                
-                fig = go.Figure()
-                
-                fig.add_trace(go.Bar(
-                    x=list(metrics.keys()),
-                    y=list(metrics.values()),
-                    marker_color=['#3366CC', '#DC3912', '#FF9900']
-                ))
-                
-                fig.update_layout(
-                    title="Model Evaluation Metrics",
-                    height=400
-                )
-                
-                st.plotly_chart(fig)
-            
-            with col2:
-                st.write("Key Factors Impacting Performance")
-                st.write("""
-                Based on our analysis, the following factors have the strongest influence on exam scores:
-                
-                1. **Previous Scores**: Strong indicator of current performance
-                2. **Hours Studied**: Shows positive correlation with exam scores
-                3. **Attendance**: Regular attendance improves performance
-                4. **Parental Involvement**: Higher involvement correlates with better scores
-                5. **Sleep Hours**: Adequate sleep is important for academic performance
-                """)
-    
     # Prediction tab
     with tab2:
         st.header("Predict Student Performance")
